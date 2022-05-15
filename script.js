@@ -68,6 +68,17 @@ function renderWeather(forcast) {
     clouds1.appendChild(cloudsElement);
     console.log(clouds)
     
+    var tomorrowWeather = forcast.daily
+    
+    for (var i = 0; i <Array.length; i++){
+        tomorrowWeather = tomorrowWeather[i].temp.day
+        // tomorrowWeather = 1.8 * (tomorrowWeather - 273) + 32
+        // tomorrowWeather = Math.round(tomorrowWeather)
+        // console.log(tomorrowWeather)
+    }
+
+
+    // console.log(tomorrowWeather)
 
     // research inner Html method 
 
