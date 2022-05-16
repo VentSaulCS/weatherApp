@@ -68,17 +68,18 @@ function renderWeather(forcast) {
     clouds1.appendChild(cloudsElement);
     console.log(clouds)
     
+
+
     var tomorrowWeather = forcast.daily
     
-    for (var i = 0; i <Array.length; i++){
-        tomorrowWeather = tomorrowWeather[i].temp.day
-        // tomorrowWeather = 1.8 * (tomorrowWeather - 273) + 32
-        // tomorrowWeather = Math.round(tomorrowWeather)
-        // console.log(tomorrowWeather)
+    for (var i = 0; i <tomorrowWeather.length; i++){
+        let dayTemp= tomorrowWeather[i].temp.day
+        let tomorrowTemp = 1.8 * (dayTemp - 273) + 32
+        let roundedTemp = Math.round(tomorrowTemp)
+        console.log(roundedTemp)
     }
 
 
-    // console.log(tomorrowWeather)
 
     // research inner Html method 
 
@@ -90,3 +91,4 @@ function renderWeather(forcast) {
 
 }
 searchBtn.addEventListener('click', getCity)
+3
