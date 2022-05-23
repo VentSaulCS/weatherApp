@@ -10,14 +10,20 @@
 </head>
 
 <body>
+    <h1 id="title">Find the Forcast in your area!</h1>
+
     <form>
-        <p>enter the City</p>
+        <p id="enter-city">enter the City</p>
         <input id="search-city">
+        <br>
         <button id="search-btn">search</button>
 
 
     </form>
-<div id="container" class="border"></div>
+    <div id="container" class="border">
+        <div id="current"></div>
+        <div id="forcast"></div>
+    </div>
 
     <script src='script.js'></script>
 </body>

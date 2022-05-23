@@ -1,4 +1,40 @@
-.border{
-    margin-right: auto;
-    margin-left: auto;
+#title {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+#enter-city {
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#search-city {
+    display: block;
+    width: 100%;
+
+
+
+}
+
+#search-btn {
+    display: flex;
+    float: right;
+    
+  
+}
+
+#current {
+    margin-top: 30px;
+    border-style: solid;
+    text-align: center;
+ 
+
+}
+
+#forcast{
+    border-style: solid;
+    text-align: center;
+
 }

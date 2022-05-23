@@ -38,57 +38,83 @@ function renderWeather(forcast) {
     date = date.toLocaleString()
     date = date.split(',')
     date = date[0]
-    var dateElement = document.createElement('p')
-    var dateContent = document.createTextNode(date)
-    dateElement.appendChild(dateContent)
-    var date1 = document.getElementById('container');
-    date1.appendChild(dateElement);
-
-
-    console.log(date)
-
-   
-
     var temp = forcast.current.temp
     temp = 1.8 * (temp - 273) + 32
     temp = Math.round(temp)
+    var windSpeed = forcast.current.wind_speed
+    var humidity = forcast.current.humidity
+    var uvi = forcast.current.uvi
+
+    var dateElement = document.createElement('h2')
+    dateElement.innerText = `${city} ${date}` //strings  interpellation
     var tempElement = document.createElement('p')
-    var tempContent = document.createTextNode(temp)
-    tempElement.appendChild(tempContent)
-    var temp1 = document.getElementById('container');
-    temp1.appendChild(tempElement);
-
-    console.log(temp)
-
-    var clouds = forcast.current.clouds
-    var cloudsElement = document.createElement('p')
-    var cloudsContent = document.createTextNode(clouds)
-    cloudsElement.appendChild(cloudsContent)
-    var clouds1 = document.getElementById('container');
-    clouds1.appendChild(cloudsElement);
-    console.log(clouds)
-    
+    tempElement.innerText = `Temp: ${temp}°F`
+    var windElement = document.createElement('p')
+    windElement.innerText = `Wind Speed: ${windSpeed} MPH`
+    var humidityElement = document.createElement('p')
+    humidityElement.innerText = `Humidity: ${humidity} %`
+    var uviElement = document.createElement('p')
+    uviElement.innerText = `UV index : ${uvi}`
 
 
-    var tomorrowWeather = forcast.daily
-    
-    for (var i = 0; i <tomorrowWeather.length; i++){
-        let dayTemp= tomorrowWeather[i].temp.day
-        let tomorrowTemp = 1.8 * (dayTemp - 273) + 32
-        let roundedTemp = Math.round(tomorrowTemp)
-        console.log(roundedTemp)
+    var currentContainer = document.getElementById('current')
+    currentContainer.appendChild(dateElement)
+    currentContainer.appendChild(tempElement)
+    currentContainer.appendChild(windElement)
+    currentContainer.appendChild(uviElement)
+
+    //Loop over the first 5 elements of daily objects
+    for (var i = 1; i < 6; i++) {
+        console.log(forcast.daily[i])
+        date = forcast.daily[i].dt
+        date = new Date(date * 1000)
+        date = date.toLocaleString()
+        date = date.split(',')
+        date = date[0]
+        temp = forcast.daily[i].temp.max
+        temp = 1.8 * (temp - 273) + 32
+        temp = Math.round(temp)
+        windSpeed = forcast.daily[i].wind_speed
+        humidity = forcast.daily[i].humidity
+        uvi = forcast.daily[i].uvi
+        console.log(date, temp, windSpeed, humidity, uvi)
+
+        var dailyDate = document.createElement('h2')
+        var dailyTemp = document.createElement('p')
+        var dailyWindspeed = document.createElement('p')
+        var dailyHumidity = document.createElement('p')
+        var dailyUvi = document.createElement('p')
+
+        dailyDate.innerText = `${date}`
+        var dailyContainer = document.getElementById('forcast')
+
+        dailyTemp.innerText = `Temp: ${temp}°F`
+        var dailyContainer = document.getElementById('forcast')
+
+        dailyWindspeed.innerText = `Wind Speed: ${windSpeed} MPH`
+        var dailyContainer = document.getElementById('forcast')
+
+        dailyHumidity.innerText = `Humidity: ${humidity} %`
+        var dailyContainer = document.getElementById('forcast')
+
+        dailyUvi.innerText = `UV index : ${uvi}`
+        var dailyContainer = document.getElementById('forcast')
+
+
+
+
+
+        dailyContainer.appendChild(dailyDate)
+        dailyContainer.appendChild(dailyTemp)
+        dailyContainer.appendChild(dailyWindspeed)
+        dailyContainer.appendChild(dailyHumidity)
+        dailyContainer.appendChild(dailyUvi)
+
+
+        //use appendChild to add element with variables to forCast cards
+        //after append all elements you have to append forcast card to the ForCast
+
     }
-
-
-
-    // research inner Html method 
-
-
-   
-
-    
-
 
 }
 searchBtn.addEventListener('click', getCity)
-3
