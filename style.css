@@ -36,5 +36,11 @@
 #forcast{
     border-style: solid;
     text-align: center;
-
+    display: flex; 
+    justify-content: center;
 }
+
+.future-card{
+    border: 1px solid black ;
+}
+

@@ -86,30 +86,29 @@ function renderWeather(forcast) {
         var dailyUvi = document.createElement('p')
 
         dailyDate.innerText = `${date}`
-        var dailyContainer = document.getElementById('forcast')
-
         dailyTemp.innerText = `Temp: ${temp}°F`
-        var dailyContainer = document.getElementById('forcast')
-
         dailyWindspeed.innerText = `Wind Speed: ${windSpeed} MPH`
-        var dailyContainer = document.getElementById('forcast')
-
         dailyHumidity.innerText = `Humidity: ${humidity} %`
-        var dailyContainer = document.getElementById('forcast')
-
         dailyUvi.innerText = `UV index : ${uvi}`
+       
         var dailyContainer = document.getElementById('forcast')
+        //Create a div to stick all of our forcast information inside of it
+        var futureCard = document.createElement('div')
 
 
 
+        //Add a class to a future card element
+        futureCard.classList.add("future-card");
 
 
-        dailyContainer.appendChild(dailyDate)
-        dailyContainer.appendChild(dailyTemp)
-        dailyContainer.appendChild(dailyWindspeed)
-        dailyContainer.appendChild(dailyHumidity)
-        dailyContainer.appendChild(dailyUvi)
 
+        futureCard.appendChild(dailyDate)
+        futureCard.appendChild(dailyTemp)
+        futureCard.appendChild(dailyWindspeed)
+        futureCard.appendChild(dailyHumidity)
+        futureCard.appendChild(dailyUvi)
+
+        dailyContainer.appendChild(futureCard)
 
         //use appendChild to add element with variables to forCast cards
         //after append all elements you have to append forcast card to the ForCast
